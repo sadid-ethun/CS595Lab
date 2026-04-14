@@ -15,13 +15,9 @@ fn main(
     //TODO: implement the logic for the deposit circuit
     
     assert(commitment == pedersen_hash([id, r]));
-
-    let empty_leaf: Field =
-        0x2df8b940e5890e4e1377e05373fae69a1d754f6935e6a780b666947431f2cdcd;
-
+    let empty_leaf: Field = 0x2df8b940e5890e4e1377e05373fae69a1d754f6935e6a780b666947431f2cdcd;
     let old_root_computed = compute_merkle_root(empty_leaf, index, oldPath);
     assert(old_root_computed == oldRoot);
-
     let new_root_computed = compute_merkle_root(commitment, index, oldPath);
     assert(new_root_computed == newRoot);
 }

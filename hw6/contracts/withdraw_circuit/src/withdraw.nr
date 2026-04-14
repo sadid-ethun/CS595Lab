@@ -6,13 +6,13 @@ fn main(
 
     r: Field,
     index: Field,
-    path: [Field; 8],
+    hashpath: [Field; 8],
     root: pub Field,
     id: pub Field,
 ) {
     //TODO: implement the logic for the withdraw circuit
 
     let leaf = pedersen_hash([id, r]);
-    let computed_root = compute_merkle_root(leaf, index, path);
+    let computed_root = compute_merkle_root(leaf, index, hashpath);
     assert(computed_root == root);
 }
